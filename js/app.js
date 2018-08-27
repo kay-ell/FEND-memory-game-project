@@ -154,7 +154,7 @@ function countMoves() {
 	counter.innerHTML = moves;
 
 	if(moves <= 5) {
-		changeStar();
+		changeStar(star);
 	}
 }
 
