@@ -154,15 +154,17 @@ function countMoves() {
 	counter.innerHTML = moves;
 
 	if(moves <= 5) {
-		changeStar(star);
+		changeStar();
 	}
 }
 
 //function to decrease star rating
 function changeStar() {
 	const stars = document.querySelectorAll('.stars li i');
-	this.classList.add('fa-star-o');
-	this.classList.remove('fa-star');
+	stars.forEach(function(star){
+		this.classList.add('fa-star-o');
+		this.classList.remove('fa-star');
+	});
 }
 
 // //function to decrease a star every 5 moves until all stars are gone
