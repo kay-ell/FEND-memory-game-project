@@ -95,7 +95,6 @@ deck.addEventListener('click', e => {
 		if (openedCards.length === 2) {
 			openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className ? matched() : unmatched();
 			countMoves();
-			changeStar();
 		}
 	} 
 });
@@ -153,12 +152,17 @@ function disableClick(openedCards) {
 function countMoves() {
 	moves++;
 	counter.innerHTML = moves;
+
+	if(moves <= 5) {
+		changeStar();
+	}
 }
 
 //function to decrease star rating
 function changeStar() {
 	const stars = document.querySelectorAll('.stars li i');
-	console.log(stars);
+	this.classList.add('fa-star-o');
+	this.classList.remove('fa-star');
 }
 
 // //function to decrease a star every 5 moves until all stars are gone
