@@ -86,9 +86,17 @@ deck.addEventListener('click', e => {
 		addCard(clicked);
 		if (openedCards.length === 2) {
 			openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className ? matched() : unmatched();
+			countMoves();
 		}
 	} 
 });
+
+//set moves to 0
+let moves = 0;
+const counter = document.querySelector('.moves');
+
+//set stars to 5
+let starsCount = 5;
 
 //function to check for valid click
 function validClick(clicked) {
@@ -98,7 +106,6 @@ function validClick(clicked) {
 	openedCards.length < 2 &&
 	!openedCards.includes(clicked)
 	);
-
 }
 
 //function to flip the card
@@ -137,6 +144,33 @@ function unmatched() {
 function disableClick(openedCards) {
 	openedCards[0].classList.add('disabled');
 	openedCards[1].classList.add('disabled');
+}
+
+//function to count moves
+function countMoves() {
+	moves++;
+	counter.innerHTML = moves;
+}
+
+//function to decrease star rating
+function changeStar() {
+	const stars = document.querySelectorAll('.stars li i');
+	stars.forEach(function (star) {
+		star.classList.add('fa fa-star-o');
+		star.classList.remove('fa fa-star');
+	});
+}
+
+//function to decrease a star every 5 moves until all stars are gone
+function minusStar() {
+	while(starsCount <= 5) {
+		if(moves === 5 || moves === 10 || moves === 15 || moves === 20 || moves === 25) {
+			changeStar();
+			starsCount--;
+		} else if (moves < 25) {
+			starsCount = 0;
+		}
+	}
 }
 
 window.onload=gameBoard();
