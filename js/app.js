@@ -95,12 +95,10 @@ deck.addEventListener('click', e => {
 		if (openedCards.length === 2) {
 			openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className ? matched() : unmatched();
 			countMoves();
+			changeStar();
 		}
 	} 
 });
-
-minusStar();
-
 
 
 //function to check for valid click
@@ -160,22 +158,19 @@ function countMoves() {
 //function to decrease star rating
 function changeStar() {
 	const stars = document.querySelectorAll('.stars li i');
-	stars.forEach(function (star) {
-		star.classList.add('fa fa-star-o');
-		star.classList.remove('fa fa-star');
-	});
+	console.log(stars);
 }
 
-//function to decrease a star every 5 moves until all stars are gone
-function minusStar() {
-	while(starsCount <= 5) {
-		if(moves === 5 || moves === 10 || moves === 15 || moves === 20 || moves === 25) {
-			changeStar();
-			starsCount--;
-		} else if (moves < 25) {
-			starsCount = 0;
-		}
-	}
-}
+// //function to decrease a star every 5 moves until all stars are gone
+// function minusStar() {
+// 	while(starsCount <= 5) {
+// 		if(moves === 5 || moves === 10 || moves === 15 || moves === 20 || moves === 25) {
+// 			changeStar();
+// 			starsCount--;
+// 		} else if (moves < 25) {
+// 			starsCount = 0;
+// 		}
+// 	}
+// }
 
 window.onload=gameBoard();
