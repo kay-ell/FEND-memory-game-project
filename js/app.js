@@ -75,9 +75,17 @@ function gameBoard () {
 //add event listener to the deck instead of individual cards
 //check if clicked target has a '.card' class
 
+//empty array to store 2 cards at a time
 let openedCards = [];
-
+//empty array to push cards that have been matched
 let matchedCards = [];
+
+//set moves to 0
+let moves = 0;
+const counter = document.querySelector('.moves');
+
+//set stars to 5
+let starsCount = 5;
 
 deck.addEventListener('click', e => {
 	const clicked = e.target;
@@ -91,12 +99,9 @@ deck.addEventListener('click', e => {
 	} 
 });
 
-//set moves to 0
-let moves = 0;
-const counter = document.querySelector('.moves');
+minusStar();
 
-//set stars to 5
-let starsCount = 5;
+
 
 //function to check for valid click
 function validClick(clicked) {
