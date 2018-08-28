@@ -92,6 +92,7 @@ deck.addEventListener('click', e => {
 		addCard(clicked);
 		if (openedCards.length === 2) {
 			openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className ? matched() : unmatched();
+			timer();
 			countMoves();
 		}
 	} 
@@ -172,5 +173,43 @@ function changeStar(index) {
 		star.classList.remove('fa-star');
 }
 
+let time = 0;
+let clock;
+let timerOff = true;
+
+//function to count time
+function timer() {
+	clock = setInterval(() => {
+		time++;
+		displayTime();
+	}, 1000);
+}
+
+//function to display time in correct format
+function displayTime() {
+	let secs = time % 60;
+	let mins = Math.floor(time / 60);
+	let hrs = Math.floor(time / 3600);
+	time %= 3600;
+
+	//select HTML elements
+	const seconds = document.querySelector('.seconds');
+	const minutes = document.querySelector('.minutes');
+	const hours = document.querySelector('.hours');
+
+	if (secs < 10) {secs = `0${secs}`;}
+	if (mins < 10) {mins = `0${mins}`;}
+	if (hrs < 10) {hrs = `0${hrs}`;}
+
+	seconds.innerHTML = secs;
+	minutes.innerHTML = mins;
+	hours.innerHTML = hrs;
+}
+
+
+//function to stop the timer
+function stopTimer() {
+	clearInterval(clock);
+}
 
 window.onload=gameBoard();
