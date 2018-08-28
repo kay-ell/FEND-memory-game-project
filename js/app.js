@@ -84,6 +84,10 @@ let matchedCards = [];
 let moves = 0;
 const counter = document.querySelector('.moves');
 
+let time = 0;
+let clock;
+let timerOff = true;
+
 
 deck.addEventListener('click', e => {
 	const clicked = e.target;
@@ -173,9 +177,7 @@ function changeStar(index) {
 		star.classList.remove('fa-star');
 }
 
-let time = 0;
-let clock;
-let timerOff = true;
+
 
 //function to count time
 function timer() {
