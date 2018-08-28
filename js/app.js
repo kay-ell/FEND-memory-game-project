@@ -153,30 +153,26 @@ function countMoves() {
 	moves++;
 	counter.innerHTML = moves;
 
-	if(moves <= 5) {
-		changeStar();
+	if(moves === 5) {
+		changeStar(4);
+	} else if(moves === 10) {
+		changeStar(3);
+	} else if(moves === 15) {
+		changeStar(2);
+	} else if(moves === 20) {
+		changeStar(1);
+	} else if (moves >= 25) {
+		changeStar(0);
 	}
 }
 
 //function to decrease star rating
-function changeStar() {
-	const stars = document.querySelectorAll('.stars li i');
-	stars.forEach(function(star){
-		this.classList.add('fa-star-o');
-		this.classList.remove('fa-star');
-	});
+function changeStar(index) {
+	let stars = document.querySelectorAll('.stars li i');
+		let star = stars[index];
+		star.classList.add('fa-star-o');
+		star.classList.remove('fa-star');
 }
 
-// //function to decrease a star every 5 moves until all stars are gone
-// function minusStar() {
-// 	while(starsCount <= 5) {
-// 		if(moves === 5 || moves === 10 || moves === 15 || moves === 20 || moves === 25) {
-// 			changeStar();
-// 			starsCount--;
-// 		} else if (moves < 25) {
-// 			starsCount = 0;
-// 		}
-// 	}
-// }
 
 window.onload=gameBoard();
