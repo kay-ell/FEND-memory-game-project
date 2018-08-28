@@ -90,9 +90,9 @@ deck.addEventListener('click', e => {
 	if(validClick(clicked)) {
 		flip(clicked);
 		addCard(clicked);
+		timer();
 		if (openedCards.length === 2) {
 			openedCards[0].firstElementChild.className === openedCards[1].firstElementChild.className ? matched() : unmatched();
-			timer();
 			countMoves();
 		}
 	} 
