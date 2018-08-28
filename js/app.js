@@ -84,8 +84,6 @@ let matchedCards = [];
 let moves = 0;
 const counter = document.querySelector('.moves');
 
-//set stars to 5
-let starsCount = 5;
 
 deck.addEventListener('click', e => {
 	const clicked = e.target;
