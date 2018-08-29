@@ -186,6 +186,7 @@ function changeStar(index) {
 function timer() {
 	clock = setInterval(() => {
 		time++;
+		
 		displayTime();
 	}, 1000);
 }
