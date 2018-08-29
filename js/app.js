@@ -195,21 +195,16 @@ function timer() {
 function displayTime() {
 	let secs = time % 60;
 	let mins = Math.floor(time / 60);
-	let hrs = Math.floor(time / 3600);
-	time %= 3600;
 
 	//select HTML elements
 	const seconds = document.querySelector('.seconds');
-	const minutes = document.querySelector('.minutes');
-	const hours = document.querySelector('.hours');
+	const minutes = document.querySelector('.minutes');=
 
 	if (secs < 10) {secs = `0${secs}`;}
 	if (mins < 10) {mins = `0${mins}`;}
-	if (hrs < 10) {hrs = `0${hrs}`;}
 
 	seconds.innerHTML = secs;
 	minutes.innerHTML = mins;
-	hours.innerHTML = hrs;
 }
 
 
