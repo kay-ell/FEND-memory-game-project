@@ -10,8 +10,9 @@ html {
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
+    min-width: 450px;
     margin: 0;
     padding: 0;
 }
@@ -33,13 +34,18 @@ h1 {
     font-weight: 300;
 }
 
+section.score-panel {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    max-width: 692px;
+    /*height: 680px;*/
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -62,7 +68,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    vertical-align: middle;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    list-style: none;
 }
 
 .deck .card.open {
@@ -90,10 +99,25 @@ h1 {
  * Styles for the Score Panel
  */
 
-.score-panel {
+/*.score-panel {
     text-align: left;
-    width: 345px;
+    width: 400px;
     margin-bottom: 10px;
+}*/
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 680px;
+}
+
+.flex-item {
+    margin: 1rem;
+    flex-grow: 1;
+    vertical-align: middle;
 }
 
 .score-panel .stars {
@@ -116,4 +140,151 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/* 
+ * modal styles
+ */
+
+#modal {
+    /*display: none;*/ /* hidden by default */
+    position: fixed;
+    z-index: 1; /* sit on top */
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/*
+ * Modal content
+ */
+
+ .modal-content {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+ }
+
+ /* 
+  * Add animation
+  */
+
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1;}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1;}
+}
+
+/*
+ * close button
+ */
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 
+ * Modal header
+ */
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #ccc;
+    color: #fff;
+}
+
+/*
+ * Modal body
+ */
+
+.modal-body {padding: 2px 16px;}
+
+.modal-body .totalStars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.modal-body .totalStars li {
+    list-style: none;
+    display: inline-block;
+}
+
+/* 
+ * Modal footer
+ */
+
+.modal-footer {
+    padding: 20px;
+    background-color: #ccc;
+    color: #fff;
+}
+
+@media screen and (max-width: 750px) {
+    .deck {max-width:600px;}
+    .deck .card {
+        height: 100px;
+        width: 100px;
+    }
+    .modal-content {width: 60%;}
+}
+
+@media screen and (max-width: 660px) {
+    .deck {max-width: 500px;}
+    .deck .card {
+        height: 85px;
+        width: 70px;
+        margin: 12px;
+    }
+    .modal-content {width: 60%;}
+}
+
+@media screen and (max-width: 545px) {
+    .deck {
+        max-width: 460px;
+        padding: 20px;
+    }
+    .deck .card {
+        margin: 10px;
+        height: 85px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .deck {
+        max-width: 400px;
+        padding: 18px;
+    }
+    .deck .card {
+        height: 70px;
+    }
 }

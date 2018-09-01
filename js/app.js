@@ -270,8 +270,8 @@ function resetMoves() {
 
 function resetStars() {
 	for(let star = 0; star < stars.length; star++) {
-		stars[star].classList.add('far fa-star');
-		stars[star].classList.remove('fas fa-star');
+		stars[star].classList.add('far','fa-star');
+		stars[star].classList.remove('fas', 'fa-star');
 	}
 }
 
