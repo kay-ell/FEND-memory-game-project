@@ -1,11 +1,15 @@
 /*
  * Create a list that holds all of your cards
  */
-
+ //select the modal
+const modal = document.querySelector('#modal');
+const closebtn = document.querySelector('span.close');
+const exit = document.querySelector('.exit');
+let stars = document.querySelectorAll('.stars li i');
 
 const cardsArray = [
-	'diamond',
-	'paper-plane-o',
+	'gem',
+	'paper-plane',
 	'anchor',
 	'bolt',
 	'cube',
@@ -40,25 +44,25 @@ function shuffle(array) {
 }
 
 
-//shuffle the allCards array
-const randomCards = shuffle(allCards);
 
 const deck = document.querySelector('.deck');
 
 //function to create game board
 function gameBoard () {
-
-
+	while(deck.hasChildNodes()) {
+		deck.removeChild(deck.lastChild);
+	}
+	//shuffle the allCards array
+	let randomCards = shuffle(allCards);
 	//loop through the randomCards array and create its own HTML
 	const cardsList = randomCards.forEach(function (randomCard, i, all) {
 		randomCard = document.createElement('li');
-		randomCard.setAttribute('class', 'card');
+		randomCard.setAttribute('class', 'card flex-item');
 		const icon = document.createElement('i');
-		icon.setAttribute('class', 'fa fa-' + randomCards[i]);
+		icon.setAttribute('class', 'far fa-' + randomCards[i]);
 		randomCard.appendChild(icon);
 		deck.appendChild(randomCard);
 	});
-
 }
 
 /*
@@ -134,7 +138,11 @@ function matched() {
 	disableClick(openedCards);
 	matchedCards = matchedCards.concat(openedCards);
 	openedCards = [];
-	console.log(matchedCards);
+	console.log(matchedCards.length);
+	//call modal when matcheCards is 16
+	if(matchedCards.length === 16) {
+		gameOver();
+	}
 }
 
 //function for when cards don't match
@@ -174,7 +182,6 @@ function countMoves() {
 
 //function to decrease star rating
 function changeStar(index) {
-	let stars = document.querySelectorAll('.stars li i');
 		let star = stars[index];
 		star.classList.add('fa-star-o');
 		star.classList.remove('fa-star');
@@ -198,7 +205,7 @@ function displayTime() {
 
 	//select HTML elements
 	const seconds = document.querySelector('.seconds');
-	const minutes = document.querySelector('.minutes');=
+	const minutes = document.querySelector('.minutes');
 
 	if (secs < 10) {secs = `0${secs}`;}
 	if (mins < 10) {mins = `0${mins}`;}
@@ -207,10 +214,82 @@ function displayTime() {
 	minutes.innerHTML = mins;
 }
 
-
 //function to stop the timer
 function stopTimer() {
 	clearInterval(clock);
+}
+
+//function to show modal when game is over
+function showModal() {
+	const totalMoves = document.querySelector('.totalMoves');
+	const totalStars = document.querySelector('.totalStars');
+	const timeElasped = document.querySelector('.timeElasped');
+
+	totalMoves.innerHTML = 'Moves: ' + moves + ' move(s)';
+	totalStars.innerHTML = 'Stars: ' + document.querySelector('.stars').innerHTML;
+	timeElasped.innerHTML = 'Time: ' + document.querySelector('#timer').innerHTML;
+
+	modal.style.display = 'block';
+}
+
+//close modal when user click (x)
+closebtn.addEventListener('click', function() {modal.style.display = 'none';});
+
+//close modal when No thanks button is clicked
+exit.addEventListener('click', function() {modal.style.display = 'none';});
+
+//close modal when user clicks anywhere outside the modal
+window.onclick = function(event) {
+	if(event.target == modal) {
+		modal.style.display = 'none';
+	}
+}
+
+//function to reset game
+function restartGame() {
+	resetTime();
+	resetMoves();
+	resetStars();
+	gameBoard();
+	clearMatchedCards();
+}
+
+//function to reset the time
+function resetTime() {
+	stopTimer();
+	timerOff = true;
+	time = 0;
+	displayTime();
+}
+
+//function to reset moves
+function resetMoves() {
+	moves = 0;
+	counter.innerHTML = moves;
+}
+
+function resetStars() {
+	for(let star = 0; star < stars.length; star++) {
+		stars[star].classList.add('far fa-star');
+		stars[star].classList.remove('fas fa-star');
+	}
+}
+
+//function to reset matchedCards array to 0
+function clearMatchedCards() {
+	matchedCards = [];
+}
+//attach event listener to '.restart' and reset game
+document.querySelector('.restart').addEventListener('click', restartGame);
+document.querySelector('.replay').addEventListener('click', function() {
+	restartGame();
+	modal.style.display = 'none';
+});
+
+//function to stop game when all cards are matched
+function gameOver() {
+	stopTimer();
+	showModal();
 }
 
 window.onload=gameBoard();

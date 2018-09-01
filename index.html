@@ -5,6 +5,7 @@
     <title>Matching Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -15,42 +16,57 @@
             <h1>Matching Game</h1>
         </header>
 
-        <section class="score-panel">
+        <section class="flex-container score-panel">
+            <div class="flex-item">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
         	</ul>
-
-        	<span class="moves">0</span> Moves
-
-            <div id="timer">
-                <span class="minutes">00</span> : 
-                <span class="seconds">00</span>
             </div>
 
-            <div class="restart">
+            <div class="flex-item">
+        	<span class="moves">0</span> Move(s)
+            </div>
+
+            <div class="flex-item">
+                <p id="timer" >
+                <span>Time <i class="far fa-clock"></i>
+                </span>
+                &nbsp;
+                <span class="minutes">00</span> : 
+                <span class="seconds">00</span>
+            </p>
+            </div>
+
+            <div class="flex-item restart">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
 
+        
         <ul class="deck">
             
         </ul>
-
+        
         <!-- the modal -->
         <div id="modal">
             <!-- modal content -->
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h3>Congratulations! You've won!</h3>
+                    <h2>Congratulations! You've won!</h2>
                 </div>
                 <div class="modal-body">
-                    <p></p>
-                    <p></p>
+                    <p class="totalMoves"></p>
+                    <p class="totalStars"></p>
+                    <p class="timeElasped"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="replay">Play again?</button>
+                    <button class="exit">No thanks!</button>
                 </div>
             </div>
         </div>
