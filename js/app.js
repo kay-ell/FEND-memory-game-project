@@ -10,12 +10,12 @@ let stars = document.querySelectorAll('.stars li i');
 const cardsArray = [
 	'gem',
 	'paper-plane',
-	'anchor',
-	'bolt',
-	'cube',
-	'leaf',
-	'bicycle',
-	'bomb'
+	'snowflake',
+	'lemon',
+	'hand-peace',
+	'grimace',
+	'bell',
+	'heart'
 ];
 
 //duplicate the cards to create a set of each
