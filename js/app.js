@@ -183,8 +183,8 @@ function countMoves() {
 //function to decrease star rating
 function changeStar(index) {
 		let star = stars[index];
-		star.classList.add('fa-star-o');
-		star.classList.remove('fa-star');
+		star.classList.add('far');
+		star.classList.remove('fas');
 }
 
 
