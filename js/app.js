@@ -164,8 +164,6 @@ function countMoves() {
 		changeStar(2);
 	} else if(moves === 20) {
 		changeStar(1);
-	} else if (moves >= 25) {
-		changeStar(0);
 	}
 }
 
@@ -240,7 +238,7 @@ function restartGame() {
 	resetMoves();
 	resetStars();
 	gameBoard();
-	clearMatchedCards();
+	clearCards();
 }
 
 //function to reset the time
@@ -264,9 +262,10 @@ function resetStars() {
 	}
 }
 
-//function to reset matchedCards array to 0
-function clearMatchedCards() {
+//function to reset matchedCards and openedCards array to 0
+function clearCards() {
 	matchedCards = [];
+	openedCards = [];
 }
 //attach event listener to '.restart' and reset game
 document.querySelector('.restart').addEventListener('click', restartGame);
