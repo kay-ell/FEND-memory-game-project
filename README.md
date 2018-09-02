@@ -7,12 +7,17 @@ Modal was inspired by the example from W3School (https://www.w3schools.com/howto
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Hoe to play](#how_to_play)
+* [Dependencies](#dependencies)
 * [Contributing](#contributing)
 
-## Instructions
+## How to play
 
 To play, click on any card on the deck, after it's opened, click a second card, if they shake and turn red, that means it's not a match and the cards will flip back to close position. Make another move, keep clicking till you match all the cards!
+
+## External Dependencies
+Font Awesome Fonts - https://fontawesome.com/icons?d=gallery&s=regular&m=free
+Google Web Fonts - https://fonts.googleapis.com/css?family=Coming+Soon
 
 ## Contributing
 
