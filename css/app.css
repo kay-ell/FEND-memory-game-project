@@ -19,7 +19,8 @@ body {
 
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Coming Soon', cursive;
+    font-weight: bolder;
 }
 
 .container {
@@ -30,8 +31,8 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-weight: bolder;
 }
 
 section.score-panel {
@@ -44,12 +45,15 @@ section.score-panel {
  */
 
 .deck {
-    max-width: 692px;
+    max-width: 750px;
     /*height: 680px;*/
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
+    background-color: #ffffff;
     padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    /*border-radius: 10px;*/
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    /*box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);*/
+    border: solid 5px #aed581;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -63,21 +67,30 @@ section.score-panel {
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     vertical-align: middle;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border: solid 3px #aed581;
+    background-color: #fff;
     list-style: none;
 }
 
+.deck .card:hover {
+    box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+}
+
+.card:nth-child(2) {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #aed581;
     cursor: default;
 }
 
@@ -87,14 +100,14 @@ section.score-panel {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #80deea;
     font-size: 33px;
 }
 
 .deck .card.unmatch {
-    background: #ff3728;
+    background: #ff7961;
     font-size: 33px;
-    animation: shake 0.6s;
+    animation: shake 0.5s;
     animation-iteration-count: 1;
 }
 
@@ -146,6 +159,7 @@ section.score-panel {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    color: #aed581;
 }
 
 .score-panel .stars li {
@@ -245,7 +259,7 @@ section.score-panel {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #ccc;
+    background-color: #aed581;
     color: #fff;
 }
 
@@ -273,8 +287,25 @@ section.score-panel {
 
 .modal-footer {
     padding: 20px;
-    background-color: #ccc;
+    background-color: #aed581;
     color: #fff;
+}
+
+.modal-footer button {
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;;
+    border: solid 3px #fff; 
+    background-color: #aed581;
+    font-family: 'Coming Soon', cursive;
+    font-weight: bold;
+    box-shadow: 15px 33px 29px -21px hsla(0,0%,0%,.2);
+}
+
+.modal-footer button:hover {
+    box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
 @media screen and (max-width: 750px) {
