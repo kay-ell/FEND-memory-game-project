@@ -1,11 +1,18 @@
 /*
- * Create a list that holds all of your cards
+ * Global variables
  */
- //select the modal
-const modal = document.querySelector('#modal');
-const closebtn = document.querySelector('span.close');
-const exit = document.querySelector('.exit');
-let stars = document.querySelectorAll('.stars li i');
+const deck = document.querySelector('.deck'); // select the deck element
+const modal = document.querySelector('#modal');  //select the modal
+const closebtn = document.querySelector('span.close'); // select the close button
+const exit = document.querySelector('.exit'); // select the exit element
+let stars = document.querySelectorAll('.stars li i'); // select the stars list
+let openedCards = []; //empty array to store 2 cards at a time
+let matchedCards = []; //empty array to push cards that have been matched
+let moves = 0; //set moves to 0
+const counter = document.querySelector('.moves'); // select the moves counter element
+let time = 0; // set time to 0
+let clock;
+let timerOff = true; // timer is off by default
 
 const cardsArray = [
 	'gem',
@@ -43,10 +50,6 @@ function shuffle(array) {
     return array;
 }
 
-
-
-const deck = document.querySelector('.deck');
-
 //function to create game board
 function gameBoard () {
 	while(deck.hasChildNodes()) {
@@ -78,20 +81,6 @@ function gameBoard () {
 
 //add event listener to the deck instead of individual cards
 //check if clicked target has a '.card' class
-
-//empty array to store 2 cards at a time
-let openedCards = [];
-//empty array to push cards that have been matched
-let matchedCards = [];
-
-//set moves to 0
-let moves = 0;
-const counter = document.querySelector('.moves');
-
-let time = 0;
-let clock;
-let timerOff = true;
-
 
 deck.addEventListener('click', e => {
 	const clicked = e.target;
@@ -187,8 +176,6 @@ function changeStar(index) {
 		star.classList.remove('fas');
 }
 
-
-
 //function to count time
 function timer() {
 	clock = setInterval(() => {
@@ -224,12 +211,14 @@ function showModal() {
 	const totalMoves = document.querySelector('.totalMoves');
 	const totalStars = document.querySelector('.totalStars');
 	const timeElasped = document.querySelector('.timeElasped');
-
-	totalMoves.innerHTML = 'Moves: ' + moves + ' move(s)';
+	setTimeout(() => {
+	totalMoves.innerHTML = 'Moves: ' + counter.innerHTML + ' move(s)';
 	totalStars.innerHTML = 'Stars: ' + document.querySelector('.stars').innerHTML;
-	timeElasped.innerHTML = 'Time: ' + document.querySelector('.minutes').innerHTML + ':'document.querySelector('.seconds').innerHTML;
-
-	modal.style.display = 'block';
+	timeElasped.innerHTML = 'Time: ' + document.querySelector('.minutes').innerHTML + ':' + document.querySelector('.seconds').innerHTML;
+	
+		modal.style.display = 'block';	
+	}, 100);
+	
 }
 
 //close modal when user click (x)
@@ -292,4 +281,4 @@ function gameOver() {
 	showModal();
 }
 
-window.onload=gameBoard();
+window.onload=gameBoard(); // load the game board when window is loaded
