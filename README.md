@@ -2,6 +2,9 @@
 
 This is part of the Grow with Google Front End Web Development NanoDegree program. The game starts when a user makes a click on a card within the deck. If two cards don't match, the cards will turn coral color and flip back to closed position. If they are matched, they will stay open, when all the cards are matched, the game stops and a modal pops up display the game stats (number of moves, number of stars and time it took to win).
 
+Read Matthew Cranford's Memory Walkthrough to get started. (https://matthewcranford.com/memory-game-walkthrough-part-1-setup/)
+Modal was inspired by the example from W3School (https://www.w3schools.com/howto/howto_css_modals.asp)
+
 ## Table of Contents
 
 * [Instructions](#instructions)
