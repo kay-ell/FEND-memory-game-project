@@ -1,5 +1,10 @@
 # Memory Game Project
 
+This is part of the Grow with Google Front End Web Development NanoDegree program. The game starts when a user makes a click on a card within the deck. If two cards don't match, the cards will turn coral color and flip back to closed position. If they are matched, they will stay open, when all the cards are matched, the game stops and a modal pops up display the game stats (number of moves, number of stars and time it took to win).
+
+Read Matthew Cranford's Memory Walkthrough to get started. (https://matthewcranford.com/memory-game-walkthrough-part-1-setup/)
+Modal was inspired by the example from W3School (https://www.w3schools.com/howto/howto_css_modals.asp)
+
 ## Table of Contents
 
 * [Instructions](#instructions)
@@ -7,14 +12,8 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+To play, click on any card on the deck, after it's opened, click a second card, if they shake and turn red, that means it's not a match and the cards will flip back to close position. Make another move, keep clicking till you match all the cards!
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+I know my code is not perfect so feel free to make pull requests or message me about any bugs or errors! Thanks!
