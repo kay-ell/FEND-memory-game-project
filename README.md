@@ -7,8 +7,8 @@ Modal was inspired by the example from W3School (https://www.w3schools.com/howto
 
 ## Table of Contents
 
-* [How to play](#how_to_play)
-* [Dependencies](#dependencies)
+* [How to play](#how to play)
+* [Dependencies](#external dependencies)
 * [Contributing](#contributing)
 
 ## How to play
