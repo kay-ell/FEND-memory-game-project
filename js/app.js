@@ -227,7 +227,7 @@ function showModal() {
 
 	totalMoves.innerHTML = 'Moves: ' + moves + ' move(s)';
 	totalStars.innerHTML = 'Stars: ' + document.querySelector('.stars').innerHTML;
-	timeElasped.innerHTML = 'Time: ' + document.querySelector('#timer').innerHTML;
+	timeElasped.innerHTML = 'Time: ' + document.querySelector('.minutes').innerHTML + ':'document.querySelector('.seconds').innerHTML;
 
 	modal.style.display = 'block';
 }
@@ -270,8 +270,8 @@ function resetMoves() {
 
 function resetStars() {
 	for(let star = 0; star < stars.length; star++) {
-		stars[star].classList.add('far');
-		stars[star].classList.remove('fas');
+		stars[star].classList.add('fas');
+		stars[star].classList.remove('far');
 	}
 }
 
